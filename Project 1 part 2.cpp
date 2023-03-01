@@ -112,21 +112,20 @@ bool editWord(string word, string definition, string pos) {
     return true;
 }
 bool removeWord(string word){
-    int numb = -1;
-    for(int i = 0; i < g_word_count; i++){
-        if(g_words[i] == word){
-            numb = i;
-            break;
-        }
-    }
+    int numb = getIndex(word);
     if (numb == -1){
         return false;
     }
-    for (int i = 0; i < g_word_count - 1; i++) {
-    }
-    g_word_count = g_word_count - 1;
+    g_words[numb] = g_words[g_word_count - 1];
+    g_pos[numb] = g_pos[g_word_count - 1];
+    g_definitions[numb] = g_definitions[g_word_count - 1];
+    g_word_count--;
+    g_words[g_word_count] = "";
+    g_definitions[g_word_count] = "";
+    g_pos[g_word_count] = "";    
     return true;
 }
+
 string getRandomWord() {
     srand((unsigned) time(NULL));
     int index = rand() % g_word_count;
@@ -135,13 +134,21 @@ string getRandomWord() {
 string maskWord(string word){
     string underscore = "";
 for (int i = 0; i < word.length(); i++){
-    underscore += "_";
+    cout << "_";
 
 }     
 return underscore;
 }
 int getTries(int difficulty){
-
+    if (difficulty == 0){
+        return 9;
+    }
+    else if(difficulty == 1){
+        return 7;
+    }
+    else if(difficulty == 2){
+        return 5;
+    }
 }
 void printAttempts(int tries, int difficulty){
 
@@ -241,5 +248,9 @@ int main(){
     cout << "Enter word for hangman game: ";
     cin >> maskword;
     cout <<maskWord(maskword);
+    int tries;
+    cout << "Enter difficulty from 0-2: ";
+    cin >> tries;
+    cout <<getTries(tries) << " tries";
     return 0;
 }
