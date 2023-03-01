@@ -156,10 +156,11 @@ void printAttempts(int tries, int difficulty){
         if(total < tries){
             cout << "O";
         }
-    }
-    for(int i = 0; i < total - tries;i++){
+        else{
             cout << "X";
         }
+    }
+
 }
 bool revealLetter(string word, char letter, string &current){
 }
