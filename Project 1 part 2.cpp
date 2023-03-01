@@ -156,7 +156,7 @@ void printAttempts(int tries, int difficulty){
         if(i < total){
             cout << "O";
         }
-        else{
+        if(int i = 0; i < total - tries
             cout << "X";
         }
     }
