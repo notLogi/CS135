@@ -127,6 +127,27 @@ bool removeWord(string word){
     g_word_count = g_word_count - 1;
     return true;
 }
+string getRandomWord() {
+    srand((unsigned) time(NULL));
+    int index = rand() % g_word_count;
+    return g_words[index];
+}
+string maskWord(string word){
+    string underscore = "";
+for (int i = 0; i < word.length(); i++){
+    underscore += "_";
+
+}     
+return underscore;
+}
+int getTries(int difficulty){
+
+}
+void printAttempts(int tries, int difficulty){
+
+}
+bool revealLetter(string word, char letter, string &current){
+}
 void gameLoop() {
     int difficulty, tries;
     string word, current;
@@ -174,11 +195,6 @@ void gameLoop() {
         }
     }
 }
-string getRandomWord() {
-    srand((unsigned) time(NULL));
-    int index = rand() % g_word_count;
-    return g_words[index];
-}
 int main(){
     readWords("dictionary.txt");
     for(int i = 0; i < g_word_count; i++){
@@ -219,7 +235,11 @@ int main(){
     cout <<"Enter the word you want to remove: ";
     cin >> removeword;
     if(removeWord(removeword) == 1){
-        cout <<"Successfully removed";
+        cout <<"Successfully removed" << endl;
     }
+    string maskword;
+    cout << "Enter word for hangman game: ";
+    cin >> maskword;
+    cout <<maskWord(maskword);
     return 0;
 }
