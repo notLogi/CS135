@@ -134,7 +134,7 @@ string getRandomWord() {
 string maskWord(string word){
     string underscore = "";
 for (int i = 0; i < word.length(); i++){
-    cout << "_";
+    underscore += "_";
 
 }     
 return underscore;
