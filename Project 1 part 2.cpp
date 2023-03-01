@@ -163,6 +163,17 @@ void printAttempts(int tries, int difficulty){
 
 }
 bool revealLetter(string word, char letter, string &current){
+    for (int i = 0; i < word.length(); i++){
+        if (word[i] != letter){
+            return false;
+        }
+    }
+    for(int i = 0; i < word.length(); i++){
+        if (word[i] == letter){
+            current[i] = letter;
+        }
+    }
+    return true;
 }
 void gameLoop() {
     int difficulty, tries;
