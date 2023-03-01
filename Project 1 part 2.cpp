@@ -153,7 +153,7 @@ int getTries(int difficulty){
 void printAttempts(int tries, int difficulty){
     int total = getTries(difficulty);
     for(int i = 0; i < tries; i++){
-        if(total < tries){
+        if(i < total){
             cout << "O";
         }
         else{
